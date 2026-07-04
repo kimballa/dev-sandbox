@@ -1,0 +1,22 @@
+services:
+  sandbox:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        USERNAME: dev
+    image: sandbox-dev
+    container_name: sandbox
+    hostname: sandbox
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+    volumes:
+      - workspace:/home/dev/workspace
+      - ${HOME}/.ssh:/home/dev/.ssh:ro
+    ports:
+      - "127.0.0.1:2222:22"
+    network_mode: bridge
+
+volumes:
+  workspace:

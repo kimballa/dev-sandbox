@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+ssh -p 2222 dev@localhost "$@"

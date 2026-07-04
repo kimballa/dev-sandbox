@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+cd "$SCRIPT_DIR"
+
+docker compose up -d
+
+echo "Sandbox is up. Connect with: docker exec -it sandbox /bin/bash"
+echo "Or run: make shell"
+echo ""
+echo "You can ssh into the instance with:"
+echo "$ ssh -p 2222 dev@localhost"
+echo "$ ssh-sandbox
+echo ""
