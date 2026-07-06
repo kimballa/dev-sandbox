@@ -12,7 +12,7 @@ services:
     stdin_open: true
     tty: true
     volumes:
-      - workspace:/home/dev/workspace
+      - workspace:/home/dev/src
       - ${HOME}/.ssh:/home/dev/.ssh:ro
     ports:
       - "127.0.0.1:2222:22"

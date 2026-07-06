@@ -85,8 +85,8 @@ RUN ARCH=$(dpkg --print-architecture) \
     && /tmp/aws/install \
     && rm -rf /tmp/awscliv2.zip /tmp/aws
 
-RUN mkdir -p /home/${USERNAME}/workspace \
-    && chown ${USERNAME}:${USERNAME} /home/${USERNAME}/workspace
+RUN mkdir -p /home/${USERNAME}/src \
+    && chown ${USERNAME}:${USERNAME} /home/${USERNAME}/src
 
 # Start with apt-get cache pre-warmed to avoid confusing errors when I inevitably
 # try to install something this Dockerfile forgot.
