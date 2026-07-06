@@ -4,6 +4,9 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
+# Ensure ~/.git-credentials exists as a file so Docker bind-mounts it correctly
+touch "${HOME}/.git-credentials"
+
 docker compose up -d
 
 echo "Sandbox is up. Connect with: docker exec -it sandbox /bin/bash"
