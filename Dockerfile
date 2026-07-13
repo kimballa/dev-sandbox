@@ -6,6 +6,8 @@ ENV DEBIAN_FRONTEND=noninteractive \
     TZ=UTC \
     PIP_BREAK_SYSTEM_PACKAGES=1
 
+RUN yes | /usr/bin/unminimize
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     ack \
     bash-completion \
