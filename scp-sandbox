@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+
+help_me=0
+if [ -z ${1:-} ]; then
+  help_me=1
+fi
+
+if [ ! "$help_me" == 1 ]; then
+  if [ -o "$1" == "--help" -o "$1" == "-h" ]; then
+    help_me=1
+  fi
+fi
+
+if [ "$help_me" == 1 ]; then
+  echo "Usage: $0 <local-file> <remote-name>"
+  exit 1
+fi
+
+scp -P 2222 "$1" "dev@localhost:$2"
